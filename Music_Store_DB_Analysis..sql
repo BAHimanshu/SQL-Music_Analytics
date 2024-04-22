@@ -1,8 +1,13 @@
-Select * from employee
+/*	Question Set 1 - Easy */
+
+/* Q1: Who is the senior most employee based on job title? */
+
 
 Select * from employee
 order by levels Desc
 limit 1
+
+/* Q2: Which countries have the most Invoices? */
 
 Select * from invoice
 
@@ -10,10 +15,15 @@ Select count(total) as c, billing_country from invoice
 Group by billing_country
 Order By c Desc;
 
+/* Q3: What are top 3 values of total invoice? */
+
 Select total from invoice
 order by total desc
 Limit 3;
 
+/* Q4: Which city has the best customers? We would like to throw a promotional Music Festival in the city we made the most money. 
+Write a query that returns one city that has the highest sum of invoice totals. 
+Return both the city name & sum of all invoice totals */
 
 SELECT billing_city,SUM(total) AS InvoiceTotal
 FROM invoice
@@ -29,6 +39,8 @@ Join  invoice ON customer.customer_id = invoice.customer_id
 Group By Customer.customer_id
 Order By total_spending Desc
 Limit 1;
+
+/* Question Set 2 - Moderate */
 
 /* Q1: Write query to return the email, first name, last name, & 
 Genre of all Rock Music listeners. 
@@ -79,6 +91,7 @@ where milliseconds >
 Order By Milliseconds Desc;
 
 /* Question Set 3 - Advance */
+
 /* Q1: Find how much amount spent by each customer on artists? 
 Write a query to return customer name, artist name and total spent */
 
@@ -156,15 +169,6 @@ WITH Customter_with_country AS (
 		GROUP BY 1,2,3,4
 		ORDER BY 4 ASC,5 DESC)
 SELECT * FROM Customter_with_country WHERE RowNo <= 1
-
-
-
-
-
-
-
-
-
 
 
 
